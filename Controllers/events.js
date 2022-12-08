@@ -1,7 +1,5 @@
 const { response } = require("express");
-const { populate } = require("../models/Event");
 const Event = require("../models/Event");
-const { trace } = require("../routes/events");
 
 const getevents = async (req, res = response) => {
   try {
