@@ -24,8 +24,11 @@ const EventSchema = new Schema({
 });
 
 EventSchema.method("toJSON", function () {
-  const { __v, _id, ...object } = this.toObject();
-
+  const { __v, _id, user, ...object } = this.toObject();
+  object.user = {
+    uid: user._id,
+    name: user.name,
+  };
   object.id = _id;
   return object;
 });
